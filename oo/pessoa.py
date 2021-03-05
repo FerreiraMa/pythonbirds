@@ -8,6 +8,16 @@ class Pessoa:
     def cumprimentar(self):
         return f'Olá {id(self)}'
 
+    #Método de Classes
+    @staticmethod
+    def metodo_estatico(): #Independe do objeto, por este motivo não recebe 'self'
+        return 42
+
+    @classmethod
+    def nome_e_atributos_de_classes(cls): #Utilizar quando queremos acessar atributos da própria classe
+        return f'{cls} - olhos {cls.olhos}'
+
+
 if __name__== '__main__':
     #p = Pessoa('Marcelo')
     #print(Pessoa.cumprimentar(p))
@@ -40,6 +50,14 @@ if __name__== '__main__':
     print(Pessoa.olhos)
     print(marcelo.olhos)
     print(id(Pessoa.olhos),id(ferreira.olhos), id(marcelo.olhos))
+
+    #executando o método
+    print(Pessoa.metodo_estatico()) #Direto da classe
+    print(marcelo.metodo_estatico()) #Através do objeto
+    print(Pessoa.nome_e_atributos_de_classes())
+    print(marcelo.nome_e_atributos_de_classes())
+
+
 
 
 
