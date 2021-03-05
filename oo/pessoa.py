@@ -28,6 +28,13 @@ if __name__== '__main__':
     for filho in marcelo.filhos:
         print(filho.nome)
 
+    #Atributo dinâmico (Não é uma boa prática)
+    marcelo.sobrenome = 'Santos'
+    print(marcelo.sobrenome)
+    print(ferreira.__dict__) #Conferir atributos de instâncias do objeto
+    print(marcelo.__dict__)
+    del marcelo.filhos #Remove o atributo dinamicamente
+
 
 
 
