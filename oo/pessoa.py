@@ -1,4 +1,5 @@
 class Pessoa:
+    olhos = 2 #Atributo de classe ou default (Usado quando o valor é comum para todos objetos.
     def __init__(self, *filhos, nome=None, idade=35):
         self.idade = idade
         self.nome = nome
@@ -34,6 +35,11 @@ if __name__== '__main__':
     print(ferreira.__dict__) #Conferir atributos de instâncias do objeto
     print(marcelo.__dict__)
     del marcelo.filhos #Remove o atributo dinamicamente
+
+    #Atributo default ou atributo de classe
+    print(Pessoa.olhos)
+    print(marcelo.olhos)
+    print(id(Pessoa.olhos),id(ferreira.olhos), id(marcelo.olhos))
 
 
 
