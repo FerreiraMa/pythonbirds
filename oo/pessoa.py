@@ -6,7 +6,7 @@ class Pessoa:
         self.filhos = list(filhos)
 
     def cumprimentar(self):
-        return f'Olá {id(self)}'
+        return f'Olá {self.nome}, sei ID é {id(self)}'
 
     #Método de Classes
     @staticmethod
@@ -17,6 +17,14 @@ class Pessoa:
     def nome_e_atributos_de_classes(cls): #Utilizar quando queremos acessar atributos da própria classe
         return f'{cls} - olhos {cls.olhos}'
 
+    #Herança
+class Homem(Pessoa): #A classe homem herda da classe Pai Pessoa
+    def cumprimentar(self):
+        cumprimentar_da_classe_pai = super().cumprimentar()
+        return f'{cumprimentar_da_classe_pai} Aperto de Mão'
+
+class Mutante(Pessoa):
+    olhos =  3 #Sobrescrita de Atributo
 
 if __name__== '__main__':
     #p = Pessoa('Marcelo')
@@ -57,7 +65,14 @@ if __name__== '__main__':
     print(Pessoa.nome_e_atributos_de_classes())
     print(marcelo.nome_e_atributos_de_classes())
 
+    #Sobrescrita de atributo de classe
+    ferreira = Mutante(nome='Ferreira') #Sobrescrita de atributo
+    print(ferreira.olhos)
 
+    #Sobrescrita de Método
+    ferreira = Homem(nome='Ferreira')
+    print(ferreira.cumprimentar())
+    print(marcelo.cumprimentar())
 
 
 
